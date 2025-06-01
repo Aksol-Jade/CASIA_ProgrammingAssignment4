@@ -1,4 +1,4 @@
-# CASIA Programming Assignment 4
+# Hyperparameter Turning Practice
 
 This notebook contains the fourth assignment for the CASIA behavioral computing course. It explores pattern classification using facial expression features and evaluates multiple supervised machine learning models.
 
