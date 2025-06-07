@@ -1,48 +1,78 @@
-# Hyperparameter Turning Practice
+---
 
-This notebook contains the fourth assignment for the CASIA behavioral computing course. It explores pattern classification using facial expression features and evaluates multiple supervised machine learning models.
-
-## 🎯 Objective
-To develop and compare classification models using CASIA dataset features. The goal is to identify the most accurate method for predicting categorical expression outcomes.
-
-## 🧩 Covered Topics
-- Feature exploration and visualization
-- Preprocessing for classification
-- Training and comparing classifiers:
-  - Logistic Regression
-  - Support Vector Machines (SVM)
-  - K-Nearest Neighbors (KNN)
-  - Decision Trees
-
-## 🔍 Notebook Highlights
-- Read and clean structured input data
-- Encode labels and standardize features
-- Train/test split for evaluation
-- Use metrics such as:
-  - Accuracy
-  - Confusion Matrix
-  - Classification Report
-- Graphical evaluation with Seaborn and Matplotlib
-
-## 🧠 Insights
-- Performance comparison between models
-- Observation of class imbalance or confusion patterns
-- Recommendations for improving classification (feature selection, resampling, etc.)
-
-## 🛠️ Dependencies
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
-```
-
-## 📁 How to Run
-1. Ensure dataset file is in the working directory
-2. Open `CASIA_ProgrammingAssignment4.ipynb`
-3. Execute all cells to generate model training and evaluation outputs
-
-## 📄 License
-For academic use only. Dataset rights remain with CASIA or your institution.
+# Support Vector Machine for Binary Tumor Classification
 
 ---
-**Author:** Axle Casia, Fernandez Joseph  
-**Last Updated:** 2025
 
+## Project Overview
+
+This notebook demonstrates the application of Support Vector Machines (SVM) to a binary classification problem involving tumor status prediction. The workflow involves feature preprocessing, hyperparameter tuning, and model evaluation using a breast tumor dataset with 30 numerical features.
+
+---
+
+## Objectives
+
+* Preprocess and scale high-dimensional data
+* Train a Support Vector Machine classifier with default settings
+* Perform hyperparameter tuning to optimize model performance
+* Evaluate classification metrics and analyze feature importance
+
+---
+
+## Methodology
+
+### 1. Preprocessing
+
+* The feature set was standardized using `StandardScaler` to improve SVM efficiency.
+* Class distributions were maintained during the train-test split using `stratify=y`.
+* No missing values were present, so no imputation was required.
+
+### 2. Model Training
+
+* Trained initial model using `sklearn.svm.SVC` with default parameters.
+* Performed hyperparameter tuning with `GridSearchCV` to explore:
+
+  * Regularization parameter (`C`)
+  * Kernel type (`linear`, `rbf`, `poly`)
+  * Kernel coefficient (`gamma`)
+
+### 3. Evaluation Metrics
+
+* Computed training and testing accuracy
+* Generated a confusion matrix
+* Calculated:
+
+  * Precision
+  * Recall
+  * F1-score
+  * False Alarm Rate
+
+### 4. Feature Selection
+
+* Used `SelectFromModel` to identify the most informative features.
+
+---
+
+## Key Learnings
+
+* Standardization is essential for distance-based models like SVM to ensure fair feature contributions.
+* The best performance was achieved using the RBF kernel with `C=10`.
+* SVM showed strong classification performance on both training and test sets.
+* Proper hyperparameter tuning significantly improved model generalization.
+
+---
+
+## Tools and Libraries
+
+* **Python**
+* **Scikit-learn** (SVC, GridSearchCV, StandardScaler, SelectFromModel)
+* **Pandas**, **NumPy** for data handling
+* **Matplotlib**, **Seaborn** for visual analysis
+
+---
+
+## Conclusion
+
+Support Vector Machines provide a robust approach to binary classification tasks when paired with proper preprocessing and tuning. The resulting model was both accurate and interpretable, making it suitable for high-dimensional diagnostic problems.
+
+---
